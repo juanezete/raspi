@@ -2,7 +2,7 @@
 Este proyecto engloba dos bots de Telegram: **RaspiBot** y **RaspiCamBot**. Ambos bots están diseñados para interactuar con imágenes, pero tienen funcionalidades distintas.
 
 ## RaspiBot🤖👀
-**Descripción:**📜
+*Descripción:*📜
 
 RaspiBot utiliza el modelo YOLO para analizar imágenes que le son enviadas a través de Telegram. Devuelve una imagen segmentada y una respeusta de texto con los objetos detectados.
 
