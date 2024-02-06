@@ -9,7 +9,29 @@ TOKEN = '6472811121:AAEnTwQtPkaq4EYC9wOXzKCRU4dwtthATb0'
 
 # Respuesta ante comando start
 def start(update: Update, context: CallbackContext) -> None:
-    update.message.reply_text('Hola! Soy RaspiBot \U0001F916 . Enviame una imagen y detectare objetos.')
+    update.message.reply_text('Hola! Soy RaspiBot \U0001F916 . Enviame una imagen y detectare objetos.'
+        '\n\nTambien puedes ajustar la confianza del modelo \U0001F3AF entre 0 y 1 usando /conf.'
+        '\nPor ejemplo, /conf 0.8 establecera la confianza en 0.8.'
+        '\n\n\u26A0Recomendable\u26A0 usar una conf > 0.5 para resultados aceptables')
+
+# Funcion para manejar el comando /conf
+def set_conf(update: Update, context: CallbackContext) -> None:
+    args = context.args
+    if not args:
+        update.message.reply_text('Por favor, proporciona un valor entre 0 y 1 despues de /conf.')
+        return
+
+    try:
+        new_conf = float(args[0])
+        if 0 <= new_conf <= 1:
+            context.user_data['telegram_conf'] = new_conf
+            update.message.reply_text(f'Se ha ajustado la confianza del modelo a {new_conf}.')
+        if new_conf < 0.5:
+             update.message.reply_text(f'¡Cuidado!\u26A0\nPuede haber malas predicciones {new_conf} < 0.5.')
+        else:
+            update.message.reply_text('El valor debe estar entre 0 y 1.')
+    except ValueError:
+        update.message.reply_text('Por favor, proporciona un valor numerico valido.')
 
 #Respuesta ante el envio de una imagen
 def process_image(update: Update, context: CallbackContext) -> None:
@@ -35,8 +57,9 @@ def process_image(update: Update, context: CallbackContext) -> None:
         emojis_path = "/home/juan/Desktop/codigo/emojis.json"
         
         # Se carga modelo de Yolo y se realiza la deteccion
+        telegram_conf = context.user_data.get('telegram_conf', 0.4)
         model = YOLO("yolov8n.pt")
-        results = model(foto_path,conf = 0.6)
+        results = model(foto_path,conf = telegram_conf)
         
         # Se extraen las clases y el numero de ellas
         classes = results[0].boxes.cls.tolist()
@@ -88,6 +111,7 @@ def main() -> None:
     dp = updater.dispatcher
 
     dp.add_handler(CommandHandler("start", start))
+    dp.add_handler(CommandHandler("conf", set_conf, pass_args=True))
     dp.add_handler(MessageHandler(Filters.photo, process_image))
 
     while True:
@@ -99,5 +123,6 @@ def main() -> None:
 
 if __name__ == '__main__':
     main()
+
 
 
