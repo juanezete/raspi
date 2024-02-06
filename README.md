@@ -41,7 +41,7 @@ RaspiCamBot está diseñado para capturar imágenes periódicas utilizando la c�
 
 ## Authors 👷‍♂️
 
-- [@guillermonb](https://github.com/guillermonb)
+- [@guinieben](https://github.com/guinieben)
 - [@juanezete](https://github.com/juanezete)
 
 
