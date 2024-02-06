@@ -30,7 +30,7 @@ RaspiCamBot está diseñado para capturar imágenes periódicas utilizando la c�
 
 **Uso:** 👨‍💻
 
-1. Inicia una conversación con RaspiCamBot en Telegram.
+1. Inicia una conversación con [RaspiCamBot](https://t.me/proyectosda2_bot) en Telegram.
 2. Utiliza comandos como `/takepic` para solicitar imágenes de la cámara.
 
 
