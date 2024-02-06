@@ -12,7 +12,7 @@ def start(update: Update, context: CallbackContext) -> None:
     update.message.reply_text('Hola! Soy RaspiBot \U0001F916 . Enviame una imagen y detectare objetos.'
         '\n\nTambien puedes ajustar la confianza del modelo \U0001F3AF entre 0 y 1 usando /conf.'
         '\nPor ejemplo, /conf 0.8 establecera la confianza en 0.8.'
-        '\n\n\u26A0Recomendable\u26A0 usar una conf > 0.5 para resultados aceptables')
+        '\n\n\u26A0Recomendable\u26A0 usar una conf > 0.4 para resultados aceptables')
 
 # Funcion para manejar el comando /conf
 def set_conf(update: Update, context: CallbackContext) -> None:
@@ -26,8 +26,8 @@ def set_conf(update: Update, context: CallbackContext) -> None:
         if 0 <= new_conf <= 1:
             context.user_data['telegram_conf'] = new_conf
             update.message.reply_text(f'Se ha ajustado la confianza del modelo a {new_conf}.')
-        if new_conf < 0.5:
-             update.message.reply_text(f'¡Cuidado!\u26A0\nPuede haber malas predicciones {new_conf} < 0.5.')
+            if new_conf < 0.4:
+                 update.message.reply_text(f'¡Cuidado!\u26A0\nPuede haber malas predicciones {new_conf} < 0.5.')
         else:
             update.message.reply_text('El valor debe estar entre 0 y 1.')
     except ValueError:
