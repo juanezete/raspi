@@ -2,7 +2,7 @@
 Este proyecto engloba dos bots de Telegram: **RaspiBot** y **RaspiCamBot**. Ambos bots están diseñados para interactuar con imágenes, pero tienen funcionalidades distintas.
 
 ## RaspiBot🤖👀
-**Descripción:** 📜
+**Descripción:** 👋
 
 RaspiBot utiliza el modelo YOLO para analizar imágenes que le son enviadas a través de Telegram. Devuelve una imagen segmentada y una respeusta de texto con los objetos detectados.
 
@@ -13,7 +13,7 @@ RaspiBot utiliza el modelo YOLO para analizar imágenes que le son enviadas a tr
 3. Envía una imagen y obtén una imagen segmentada con objetos detectados.
 4. Ajusta la confianza del modelo con `/conf` <valor>.
 
-**Estructura del Proyecto:**
+**Estructura del Proyecto:** 🗃️
 
 `raspibot/` 
 
@@ -23,7 +23,7 @@ RaspiBot utiliza el modelo YOLO para analizar imágenes que le son enviadas a tr
 
 
 ## RaspiCamBot
-**Descripción:** 📜
+**Descripción:** 👋
 
 RaspiCamBot está diseñado para capturar imágenes periódicas utilizando la cámara de Raspberry Pi. Las imágenes se pueden solicitar mediante comandos desde Telegram.
 
@@ -33,12 +33,12 @@ RaspiCamBot está diseñado para capturar imágenes periódicas utilizando la c�
 2. Utiliza comandos como `/takepic` para solicitar imágenes de la cámara.
 
 
-**Estructura del Proyecto:**
+**Estructura del Proyecto:** 🗃️
 
 `raspicambot/` 
 
 
-## Authors
+## Authors 👷‍♂️
 
 - [@guillermonb](https://github.com/guillermonb)
 - [@juanezete](https://github.com/juanezete)
