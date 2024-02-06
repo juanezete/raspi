@@ -1,5 +1,5 @@
 
-# RaspiBot & RaspiCamBot 
+# RaspiBot & RaspiCamBot 🤖🍓
 Este proyecto engloba dos bots de Telegram: **RaspiBot** y **RaspiCamBot**. Ambos bots están diseñados para interactuar con imágenes, pero tienen funcionalidades distintas.
 
 ## RaspiBot
